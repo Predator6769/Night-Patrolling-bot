@@ -1,0 +1,17 @@
+<launch>
+  <node pkg="ros_npr" type="robotDirection.py" name="robotdirection"/>
+  <node pkg="rosserial_python" type="serial_node.py" name="serial1">
+    <param name="port" value="/dev/ttyUSB0"/>
+  </node>
+  <node pkg="rosserial_python" type="serial_node.py" name="serial2">
+    <param name="port" value="/dev/ttyUSB1"/>
+  </node>
+  <node pkg="ros_npr" type="OdomTicksData.py" name="OdomTicks"/>
+  <node pkg="ros_npr" type="OdomImuData.py" name="OdomIMU"/>
+  <!--<node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+    <rosparam command="load" file="$(find ros_npr)/config/ekf_localization.yaml"/>
+  </node>-->
+
+  <!--<node pkg="ros_npr" type="ServoAndVLXControl.py" name="ServoAndVLX"/>
+  <node pkg="ros_npr" type="rangeToLaserscan.py" name="rangetolaserscan"/>    -->
+</launch>
